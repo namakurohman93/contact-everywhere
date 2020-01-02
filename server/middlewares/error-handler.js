@@ -6,7 +6,7 @@ module.exports = function(err, req, res, next) {
       res.status(400).json({ errors })
       break
 
-    case 'MissingBody':
+    case 'MissingParams':
       res.status(400).json({ errors: err.message })
       break
 
@@ -14,7 +14,12 @@ module.exports = function(err, req, res, next) {
       res.status(404).json({ errors: err.message })
       break
 
+    case 'NotAuthorzie':
+      res.status(401).json({ errors: err.message })
+      break
+
     default:
       res.status(500).json(err)
+      break
   }
 }

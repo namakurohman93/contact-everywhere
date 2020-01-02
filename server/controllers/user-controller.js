@@ -22,7 +22,9 @@ class UserController {
     if (!req.body.email) errors.push('Email is required')
     if (!req.body.password) errors.push('Password is required')
 
-    if (errors.length > 0) return next({ name: 'MissingBody', message: errors })
+    if (errors.length > 0) {
+      return next({ name: 'MissingParams', message: errors })
+    }
 
     User.findOne({ where: { email: req.body.email } })
       .then(user => {
