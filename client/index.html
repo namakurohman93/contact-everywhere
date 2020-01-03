@@ -8,9 +8,410 @@
     />
 
     <link rel="icon" href="./pictures/icon-contacts.png" />
+    <link rel="stylesheet" href="./styles/custom.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./src/bootstrap/css/bootstrap.min.css" />
+
+    <!-- font-awesome -->
+    <script src="./src/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="./src/fontawesome/css/fontawesome.min.css" />
+
+    <!-- sweetalert dark theme -->
+    <link rel="stylesheet" href="./src/sweetalert/sweetalert-dark-theme.css" />
+    <script src="./src/sweetalert/sweetalert2.min.js"></script>
+
+    <!-- animate.css -->
+    <link rel="stylesheet" href="./src/animate/animate.css" />
+
     <title>Contact Everywhere</title>
   </head>
   <body>
-    <h1>Hello Contact Everywhere</h1>
+    <!-- not login component -->
+    <div id="not-login">
+      <!-- navbar component -->
+      <div class="container px-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
+          <a
+            class="navbar-brand text-dark "
+            href="#"
+            onclick="showJumbotron(event)"
+          >
+            <img src="./pictures/icon-contacts.png" width="30" height="30" />
+            <span class="custom-spacing">Contact Everywhere</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link px-0 mr-4"
+                  href="#"
+                  onclick="showLoginForm(event)"
+                  >Login</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link px-0"
+                  href="#"
+                  onclick="showRegisterForm(event)"
+                  >Register</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- end of navbar component -->
+
+      <div class="container custom-container mt-lg-1 mt-sm-0">
+        <!-- jumbotron component -->
+        <div
+          class="jumbotron custom-jumbotron bg-dark text-light"
+          id="jumbotron"
+        >
+          <h1 class="display-4 custom-spacing">Contact Everywhere</h1>
+          <hr class="my-4" style="border-color: white;" />
+          <p class="lead">Simple. Yet not so fancy</p>
+          <button
+            class="btn btn-outline-light custom-btn"
+            onclick="showRegisterForm(event)"
+          >
+            Use it now
+          </button>
+        </div>
+        <!-- end of jumbotron component -->
+
+        <!-- login form -->
+        <div
+          class="jumbotron bg-dark mt-5 p-0"
+          id="login-form"
+          style="display:none; border-radius: 0;"
+        >
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 col-sm-12 col-md-6">
+              <form class="mx-auto bg-dark my-4" onsubmit="login(event)">
+                <h3 class="text-light lead display-4">Login</h3>
+                <hr class="py-2" style="border-color: white;" />
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="loginEmail"
+                    placeholder="Email"
+                    style="border-radius: 0;"
+                  />
+                </div>
+                <div class="form-group pb-2">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="loginPassword"
+                    placeholder="Password"
+                    style="border-radius: 0;"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-outline-light"
+                  style="border-radius: 0;"
+                >
+                  Login
+                </button>
+                <small class="form-text text-light pt-1"
+                  >Didn't have account?
+                  <a
+                    class="text-decoration-none"
+                    href="#"
+                    onclick="showRegisterForm(event)"
+                    >Register</a
+                  >
+                </small>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- end of login form -->
+
+        <!-- register form -->
+        <div
+          class="jumbotron bg-dark mt-5 p-0"
+          id="register-form"
+          style="display:none; border-radius: 0;"
+        >
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 col-sm-12 col-md-6">
+              <form class="mx-auto bg-dark my-4" onsubmit="register(event)">
+                <h3 class="text-light lead display-4">Register</h3>
+                <hr class="py-2" style="border-color: white" />
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="registerEmail"
+                    placeholder="Email"
+                    style="border-radius: 0;"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="registerUsername"
+                    placeholder="Username"
+                    style="border-radius: 0;"
+                  />
+                </div>
+                <div class="form-group pb-2">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="registerPassword"
+                    placeholder="Password"
+                    style="border-radius: 0;"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-outline-light"
+                  style="border-radius: 0;"
+                >
+                  Register
+                </button>
+                <small class="form-text text-light pt-1"
+                  >Already register?
+                  <a
+                    class="text-decoration-none"
+                    href="#"
+                    onclick="showLoginForm(event)"
+                    >Login</a
+                  >
+                </small>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- end of register form -->
+      </div>
+    </div>
+    <!-- end of not login component -->
+
+    <!-- logged in component -->
+    <div id="loggedin" style="display: none;">
+      <!-- navbar component -->
+      <div class="container px-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
+          <a class="navbar-brand text-dark " href="#">
+            <img src="./pictures/icon-contacts.png" width="30" height="30" />
+            <span class="custom-spacing">Contact Everywhere</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link px-0 mr-4 disabled"
+                  href="#"
+                  onclick="showLoginForm(event)"
+                  ><span id="username"></span
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-0" href="#" onclick="logout(event)"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- end of navbar component -->
+
+      <div class="container custom-container-2 mt-lg-1 mt-sm-0">
+        <!-- search form -->
+        <form onsubmit="filterContact(event)">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control custom-input"
+              placeholder="&#xF002; Search"
+              aria-label="Contact Name"
+              aria-describedby="button-addon2"
+              id="query"
+            />
+          </div>
+        </form>
+        <!-- end of search form -->
+
+        <!-- start of dynamic contact content -->
+        <div id="contact-content"></div>
+        <!-- end of dynamic contact contetn -->
+
+        <!-- bottom section -->
+        <div class="custom-bottom">
+          <div class="container">
+            <div
+              class="d-flex justify-content-xl-center justify-content-lg-center justify-content-md-right justify-content-sm-right align-items-center"
+            >
+              <button
+                class="btn btn-primary rounded-circle"
+                data-toggle="modal"
+                data-target="#formAddContact"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end of bottom section -->
+      </div>
+    </div>
+    <!-- end of logged in component -->
+
+    <!-- modal form add new contact -->
+    <div
+      class="modal fade"
+      id="formAddContact"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New Contact</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form onsubmit="addNewContact(event)">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  class="form-control rounded-0"
+                  id="newContactName"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input
+                  type="text"
+                  class="form-control rounded-0"
+                  id="newContactPhoneNumber"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary rounded-0">
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of modal form add new contact -->
+
+    <!-- modal form edit contact -->
+    <div
+      class="modal fade"
+      id="formEditContact"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Contact</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form onsubmit="editContact(event)">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  class="form-control rounded-0"
+                  id="editContactName"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input
+                  type="text"
+                  class="form-control rounded-0"
+                  id="editContactPhoneNumber"
+                />
+              </div>
+              <input type="text" id="editContactId" hidden />
+              <button type="submit" class="btn btn-primary rounded-0">
+                Edit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of modal form edit contact -->
+
+    <!-- axios -->
+    <script src="./src/axios/axios.min.js"></script>
+
+    <!-- Bootstrap & jquery -->
+    <script src="./src/jquery/jquery-3.4.1.min.js"></script>
+    <script src="./src/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- lodash -->
+    <script src="./src/lodash/lodash.min.js"></script>
+
+    <!-- custom js -->
+    <script src="./js/store.js"></script>
+    <script src="./js/actions.js"></script>
+    <script src="./js/axios-instance.js"></script>
+    <script src="./js/components.js"></script>
+    <script src="./js/component-visibility.js"></script>
+    <script src="./js/component-handler.js"></script>
+    <script src="./js/session-handler.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

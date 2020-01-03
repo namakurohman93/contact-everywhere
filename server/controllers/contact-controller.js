@@ -53,11 +53,6 @@ class ContactController {
         res.json(contacts)
       })
       .catch(next)
-    // User.findOne({ where: { id: req.payload.id }, include: ['Contact'] })
-    // .then(user => {
-    // res.json(user)
-    // })
-    // .catch(next)
   }
 }
 
