@@ -149,6 +149,8 @@ function editContact(e) {
     return null
   }
 
+  showSwalLoading('Updating...')
+
   ai.patch(
     `/contacts/${contactId}`,
     {

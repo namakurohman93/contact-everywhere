@@ -1,3 +1,4 @@
 const ai = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://afternoon-plains-30936.herokuapp.com',
+  // baseURL: 'http://localhost:3000',
 })
