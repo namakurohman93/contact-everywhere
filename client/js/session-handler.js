@@ -78,6 +78,7 @@ function register(e) {
       localStorage.setItem('username', data.username)
 
       $('#username').text(localStorage.getItem('username'))
+      initState()
       showLoggedin()
     })
     .catch(errorHandler)

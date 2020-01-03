@@ -3,7 +3,7 @@ Contact Everywhere, simple app for keep your contact list
 
 # Link Deploy
 * backend: https://afternoon-plains-30936.herokuapp.com
-* frontend: http://contact-everywhere.didadadida93.xyz.s3-website-ap-southeast-1.amazonaws.com
+* frontend: http://contact-everywhere.didadadida93.xyz
 > it is recommended to open frontend link with your smartphone or smaller display.
 
 ## Base URL
